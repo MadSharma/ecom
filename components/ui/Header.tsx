@@ -1,16 +1,26 @@
 import React from "react";
 import Container from "./Container";
 import Logo from "./Logo";
-
+import HeaderMenu from "./HeaderMenu";
 
 function Header() {
   return (
-    <header className="bg-red-300 bg-white py-5">
-      <Container>
-       <Logo />
+    <header className="bg-white py-5 border-b border-b-black/20">
+      <Container className="flex items-center relative">
+
+        {/* Logo - Left */}
+        <div className="absolute left-0 flex items-center">
+          <Logo />
+        </div>
+
+        {/* Menu - Center */}
+        <div className="w-full flex justify-center">
+          <HeaderMenu />
+        </div>
+
       </Container>
     </header>
   );
-};
+}
 
 export default Header;
