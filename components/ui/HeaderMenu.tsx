@@ -1,6 +1,6 @@
-import { headerData } from '@/constants/data'
-import Link from 'next/link'
-import React from 'react' 
+import { headerData } from '@/constants/data';
+import Link from 'next/link';
+import React from 'react';
 
 const HeaderMenu = () => {
   return (
@@ -9,26 +9,26 @@ const HeaderMenu = () => {
         <Link
           key={item?.title}
           href={item?.href}
-          className="relative group hover:text-shop_light_green hoverEffect"
+          className="relative group hover:text-shop_light_green transition-all duration-300"
         >
           {item?.title}
 
-          {/* Left underline bar */}
+          {/* LEFT LINE */}
           <span
             className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-shop_light_green 
-            transition-all duration-300 group-hover:w-1/2 group-hover:left-0"
+            transition-all duration-300 group-hover:left-0 group-hover:w-1/2"
           ></span>
 
-          {/* Right underline bar */}
+          {/* RIGHT LINE */}
           <span
             className="absolute -bottom-1 right-1/2 w-0 h-0.5 bg-shop_light_green 
-            transition-all duration-300 group-hover:w-1/2"
+            transition-all duration-300 group-hover:right-0 group-hover:w-1/2"
           ></span>
 
         </Link>
-      ))}   
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default HeaderMenu;
