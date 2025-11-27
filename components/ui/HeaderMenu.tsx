@@ -1,32 +1,50 @@
+'use client';
+
 import { headerData } from '@/constants/data';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const HeaderMenu = () => {
+  const pathname = usePathname();
+
   return (
     <div className="hidden md:inline-flex w-1/3 items-center gap-7 text-sm capitalize font-semibold text-lightColor">
-      {headerData?.map((item) => (
-        <Link
-          key={item?.title}
-          href={item?.href}
-          className="relative group hover:text-shop_light_green transition-all duration-300"
-        >
-          {item?.title}
+      {headerData?.map((item) => {
+        const isActive = pathname === item.href;
 
-          {/* LEFT LINE */}
-          <span
-            className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-shop_light_green 
-            transition-all duration-300 group-hover:left-0 group-hover:w-1/2"
-          ></span>
+        return (
+          <Link
+            key={item?.title}
+            href={item?.href}
+            className={`relative group transition-all duration-300 hover:text-shop_light_green ${
+              isActive ? 'text-shop_light_green' : ''
+            }`}
+          >
+            {item?.title}
 
-          {/* RIGHT LINE */}
-          <span
-            className="absolute -bottom-1 right-1/2 w-0 h-0.5 bg-shop_light_green 
-            transition-all duration-300 group-hover:right-0 group-hover:w-1/2"
-          ></span>
+            {/* LEFT LINE */}
+            <span
+              className={`absolute -bottom-1 left-1/2 h-0.5 bg-shop_light_green transition-all duration-300
+              ${
+                isActive
+                  ? 'w-1/2 left-0'
+                  : 'w-0 group-hover:left-0 group-hover:w-1/2'
+              }`}
+            ></span>
 
-        </Link>
-      ))}
+            {/* RIGHT LINE */}
+            <span
+              className={`absolute -bottom-1 right-1/2 h-0.5 bg-shop_light_green transition-all duration-300
+              ${
+                isActive
+                  ? 'w-1/2 right-0'
+                  : 'w-0 group-hover:right-0 group-hover:w-1/2'
+              }`}
+            ></span>
+          </Link>
+        );
+      })}
     </div>
   );
 };
