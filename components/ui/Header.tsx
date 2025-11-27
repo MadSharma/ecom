@@ -2,6 +2,8 @@ import React from "react";
 import Container from "./Container";
 import Logo from "./Logo";
 import HeaderMenu from "./HeaderMenu";
+import { Search } from "lucide-react";
+import SearchBar from "./SearchBar";
 
 function Header() {
   return (
@@ -16,6 +18,9 @@ function Header() {
         {/* Menu - Center */}
         <div className="w-full flex justify-center">
           <HeaderMenu />
+          <div>
+            <SearchBar />
+          </div>
         </div>
 
       </Container>
