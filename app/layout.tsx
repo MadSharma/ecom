@@ -20,7 +20,7 @@ export default function RootLayout({
         <body className="font-poppins antialiased">
          <div className="flex flex-col min-h-screen">
            <Header /> 
-          <main className="flex-1 bg-red-300" >{children}</main>
+          <main >{children}</main>
           <Footer />
          </div>
         </body>

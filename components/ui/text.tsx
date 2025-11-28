@@ -1,14 +1,29 @@
-import { Children } from "react"
-import { cn } from "@/lib/utils"
+import React from "react";
+import { cn } from "@/lib/utils";
 
-export const Title = ({
-  children,
-  className
-}: {children: React.ReactNode, className?: string})=>{
-    return(
-        <h2 className={ cn("text-3xl md:text-3xl font-semibold text-shop-_dark_green capitalize tracking-wide font-sans", className)}>
-          {children}</h2>
-    );
+interface TextProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export const Title = ({ children, className }: TextProps) => {
+  return (
+    <h2
+      className={cn(
+        "text-3xl md:text-3xl font-semibold text-shop_dark_green capitalize tracking-wide font-sans",
+        className
+      )}
+    >
+      {children}
+    </h2>
+  );
 };
 
-// export { Title };
+export const SubText = ({ children, className }: TextProps) => {
+  return (
+    <p className={cn("text-gray-600 text-sm leading-relaxed", className)}>
+      {children}
+    </p>
+  );
+};
+export default { Title, SubText };
