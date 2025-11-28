@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
-
+import {ClerkProvider} from '@clerk/nextjs';
+ 
 export const metadata: Metadata = {
-  title: "Ecom",
-  description: "Ecom website built with Next.js",
+  title: "Shopcart Online Store",
+  description: "Shopcart online store website built with Next.js",
 };
 
 export default function RootLayout({
@@ -14,16 +15,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
-      <body className="font-poppins antialiased">
-        <Header /> 
-        {children}
-        <Footer />
-      </body>
+        <body className="font-poppins antialiased">
+          <Header /> 
+          {children}
+          <Footer />
+        </body>
     </html>
+    </ClerkProvider>
   );
 }
 
 
-7217695066
+
 
