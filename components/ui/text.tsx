@@ -19,6 +19,19 @@ export const Title = ({ children, className }: TextProps) => {
   );
 };
 
+export const SubTitle = ({ children, className }: TextProps) => {
+  return (
+    <h3
+      className={cn(
+        "text-lg font-semibold text-gray-900 font-sans",
+        className
+      )}
+    >
+      {children}
+    </h3>
+  );
+};
+
 export const SubText = ({ children, className }: TextProps) => {
   return (
     <p className={cn("text-gray-600 text-sm leading-relaxed", className)}>
@@ -26,4 +39,3 @@ export const SubText = ({ children, className }: TextProps) => {
     </p>
   );
 };
-export default { Title, SubText };
